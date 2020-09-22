@@ -28,4 +28,4 @@ weather-frontend.code-workspace
 /.history
 .eslintcache
 
-/stories
+/src/stories
