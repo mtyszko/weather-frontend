@@ -26,4 +26,6 @@ yarn-error.log*
 weather-frontend.code-workspace
 
 /.history
-.eslintcachecdcmd-
+.eslintcache
+
+/stories
