@@ -29,6 +29,7 @@
     "no-plusplus": 0,
     "no-return-assign": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-    "react/state-in-constructor": 0
+    "react/state-in-constructor": 0,
+    "react/jsx-props-no-spreading": 0
   }
 }
