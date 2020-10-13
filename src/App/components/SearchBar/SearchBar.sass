@@ -1,4 +1,8 @@
 .nav--wrapper
+  position: fixed
+  z-index: 1
+  top: 0
+  left: 0
   width: 100vw
   height: 52px
   display: flex
@@ -6,8 +10,7 @@
 
   nav
     height: 52px
-    width: 62%
-    max-width: 893px
+    // width: clamp(300px, 62%, 893px)
     display: flex
     justify-content: flex-end
 
@@ -16,6 +19,7 @@
       align-self: center
 
       input
+        min-width: 162px
         line-height: 26px
         padding: 0 15px
         border-radius: 25px 0 0 25px
@@ -24,7 +28,8 @@
         cursor: pointer
 
       .search--btn
-        width: 80px
+        min-width: 100px
+        padding: 0 20px
         line-height: 26px
         font-family: 'Open Sans', sans-serif
         color: #ffffff

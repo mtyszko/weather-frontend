@@ -1,6 +1,14 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import '../../App.sass';
-import SearchBar from './SearchBar';
 
-storiesOf('Modules').add('Search Bar', () => <SearchBar />);
+import SearchBar from './SearchBar';
+import '../../App.sass';
+
+export default {
+  title: 'Modules/Search Bar',
+  component: SearchBar,
+};
+
+const Template = (args) => <SearchBar {...args} />;
+
+export const Main = Template.bind({});
+Main.args = {};

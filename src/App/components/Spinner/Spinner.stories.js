@@ -1,6 +1,13 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import '../../App.sass';
-import Spinner from './Spinner';
 
-storiesOf('Modules').add('Spinner', () => <Spinner />);
+import Spinner from './Spinner';
+import '../../App.sass';
+
+export default {
+  title: 'Modules/Loading',
+  component: Spinner,
+};
+
+const Template = () => <Spinner />;
+
+export const Main = Template.bind({});

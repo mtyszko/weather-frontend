@@ -6,7 +6,7 @@ import './SearchBar.sass';
 const SearchBar = ({ handleSearch, handleInput }) => {
   return (
     <section className='nav--wrapper dark--bg'>
-      <nav>
+      <nav className='rwd--size'>
         <form action='' onSubmit={handleSearch}>
           <input
             type='text'
