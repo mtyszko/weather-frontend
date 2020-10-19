@@ -1,45 +1,31 @@
-.nav--wrapper
-  position: fixed
-  z-index: 1
-  top: 0
-  left: 0
-  width: 100vw
-  height: 52px
+
+form
   display: flex
-  justify-content: center
+  align-self: center
 
-  nav
-    height: 52px
-    // width: clamp(300px, 62%, 893px)
-    display: flex
-    justify-content: flex-end
+  label
+    width: 62%
+    padding: 0 15px
+    border-radius: 25px 0 0 25px
+    outline: none
+    border: none
+    cursor: pointer
+    background-color: #fff
 
-    form
-      display: flex
-      align-self: center
+    input
+      line-height: 26px
+      outline: none
+      border: none
+      padding: 0 10px
+      width: 90%
 
-      input
-        min-width: 162px
-        line-height: 26px
-        padding: 0 15px
-        border-radius: 25px 0 0 25px
-        outline: none
-        border: none
-        cursor: pointer
-
-      .search--btn
-        min-width: 100px
-        padding: 0 20px
-        line-height: 26px
-        font-family: 'Open Sans', sans-serif
-        color: #ffffff
-        border-radius: 0 25px 25px  0
-        outline: none
-        border: none
-        cursor: pointer
-
-.dark--bg
-  background-color: #222
-
-.yellow--bg
-  background-color: #f6a71c
+  .search--btn
+    width: 38%
+    text-align: center
+    line-height: 26px
+    font-family: 'Open Sans', sans-serif
+    color: #ffffff
+    border-radius: 0 25px 25px  0
+    outline: none
+    border: none
+    cursor: pointer

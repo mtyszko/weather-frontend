@@ -1,19 +1,41 @@
 import moment from 'moment';
 import 'moment/locale/pl';
 
-export const handleLocationData = (locInfo) => {
-  const city = locInfo.split(',', 1).toString();
-  const aside = locInfo.replace(`${city}, `, '');
+export const handleQuery = (userQuery) => {
+  const pattern = /^[\w&.]*$/;
 
-  const location = {
-    city,
-    aside,
-  };
+  const query = userQuery
+    .split(' ')[0]
+    .split('')
+    .filter((item) => item.match(pattern))
+    .join('')
+    .toLowerCase();
 
-  return location;
+  return query;
 };
 
-export const getDate = (date) => {
+export const handleLocationData = (locInfo) => {
+  const { location, lat, lon } = locInfo;
+
+  const mainInfo = location.split(',', 1).toString();
+  const regionInfo = location.replace(`${mainInfo}, `, '');
+  const latitude = lat;
+  const longitude = lon;
+
+  const locationObject = {
+    mainInfo,
+    regionInfo,
+    latitude,
+    longitude,
+  };
+
+  return locationObject;
+};
+
+export const getCurrentDate = (dateData) => {
   moment.locale('pl');
-  return moment(date).format('LLL');
+
+  const date = moment.unix(dateData).format('LLL');
+
+  return date;
 };

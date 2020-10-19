@@ -3,28 +3,22 @@ import propTypes from 'prop-types';
 
 import './LocationInfo.sass';
 
-const LocationInfo = ({ city, aside, date }) => {
+const LocationInfo = ({ mainInfo, regionInfo, date }) => {
   return (
     <section className='location--wrapper'>
       <div className='location--info'>
-        <div className='main--info'>{city}</div>
-        <div className='aside--info'>{aside}</div>{' '}
+        <div className='main--info'>{mainInfo}</div>
+        <div className='region--info'>{regionInfo}</div>{' '}
       </div>
-      <div className='date--info'>{date} 6 marca 2019 14:00</div>
+      <div className='date--info'>{date} </div>
     </section>
   );
 };
 
 LocationInfo.propTypes = {
-  city: propTypes.string,
-  aside: propTypes.string,
-  date: propTypes.string,
-};
-
-LocationInfo.defaultProps = {
-  city: 'Legionowo',
-  aside: 'powiat legionowski, woj. mazowieckie, Polska',
-  date: '6 marca 2019 14:00',
+  mainInfo: propTypes.string.isRequired,
+  regionInfo: propTypes.string.isRequired,
+  date: propTypes.string.isRequired,
 };
 
 export default LocationInfo;
