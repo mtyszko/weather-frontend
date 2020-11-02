@@ -10,15 +10,15 @@ const SearchBar = ({ handleUserSearch, handleInput }) => {
   return (
     <form action='' onSubmit={handleUserSearch}>
       <label htmlFor='search'>
-        <FontAwesomeIcon icon={faSearch} className='fa--search' />
+        <FontAwesomeIcon icon={faSearch} className='fa__search' />
         <input
           name='search'
           type='text'
-          placeholder='np.legionowo*'
+          placeholder='np. warszawa'
           onChange={handleInput}
         />
       </label>
-      <button type='submit' className='search--btn yellow--bg'>
+      <button type='submit' className='search__btn yellow__bg'>
         WYSZUKAJ
       </button>
     </form>

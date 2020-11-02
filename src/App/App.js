@@ -7,16 +7,19 @@ import Start from './components/Start/Start';
 
 import {
   handleLocationData,
-  handleQuery,
   getCurrentDate,
+  handleForecastData,
 } from '../utils/formatData';
 
 import './App.sass';
+import SearchBar from './components/SearchBar/SearchBar';
 
 class App extends Component {
   state = {
-    searchPanel: true,
+    start: true,
+    searchPanel: false,
     closeButton: false,
+    darkMode: false,
     loading: false,
     userQuery: '',
     forecast: '',
@@ -35,62 +38,90 @@ class App extends Component {
     e.preventDefault();
 
     const { userQuery } = this.state;
-    const apiQuery = handleQuery(userQuery);
 
     this.setState({ loading: true });
-    // ! remove const proxyurl before npm run build
+    // FIXME:  remove const proxyurl before npm run build
     const proxyurl = 'https://cors-anywhere.herokuapp.com/';
 
     try {
       const raw = await fetch(
-        // ! remove ${proxyurl} before npm run build
-        `${proxyurl}https://mtdev-weather-api.herokuapp.com/api-weather?location=${apiQuery}`,
+        // FIXME:  remove ${proxyurl} before npm run build
+        `${proxyurl}https://mtdev-weather-api.herokuapp.com/api-weather?location=${userQuery}`,
       );
 
       const data = await raw.json();
+      const { error } = data;
+      if (error) {
+        this.setState({
+          error,
+          loading: false,
+          searchPanel: true,
+        });
+        return error;
+      }
 
       const location = handleLocationData(data.location);
       const date = getCurrentDate(data.forecast.current.dt);
-      const forecast = data.forecast;
+      const forecast = handleForecastData(data.forecast);
 
       this.setState({
         loading: false,
+        searchPanel: false,
         forecast,
         location,
         date,
+        error: '',
       });
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      this.setState({
+        error,
+        searchPanel: true,
+        closeButton: false,
+      });
+      console.log(error);
     }
+  };
+
+  showSearchPanel = () => {
+    this.setState({
+      searchPanel: true,
+    });
   };
 
   render() {
     const {
       loading,
+      searchPanel,
       forecast,
       date,
       error,
       location: { mainInfo, regionInfo },
     } = this.state;
-    // const { mainInfo, aside } = location;
 
     return (
+      //  TODO: lepsza logika mile widziana - mniej ternary operators i/lub ifów
       <>
         {loading ? <Spinner /> : console.log('stopped loading')}
-        <NavBar
-          handleUserSearch={this.handleUserSearch}
-          handleInput={this.handleInput}
-        />
-        <div className='main--wrapper rwd--container'>
-          {forecast !== '' ? (
+        {searchPanel ? (
+          <SearchBar
+            handleUserSearch={this.handleUserSearch}
+            handleInput={this.handleInput}
+          />
+        ) : null}
+        <div className={`wrapper ${searchPanel ? 'blured' : null}`}>
+          <NavBar
+            handleUserSearch={this.handleUserSearch}
+            handleInput={this.handleInput}
+            searchPanel={searchPanel}
+            showSearchPanel={this.showSearchPanel}
+          />
+          <div className='rwd__container content__wrapper'>
             <LocationInfo
               mainInfo={mainInfo}
               regionInfo={regionInfo}
               date={date}
             />
-          ) : (
-            <Start />
-          )}
+          </div>
         </div>
       </>
     );

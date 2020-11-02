@@ -5,12 +5,12 @@ import './LocationInfo.sass';
 
 const LocationInfo = ({ mainInfo, regionInfo, date }) => {
   return (
-    <section className='location--wrapper'>
-      <div className='location--info'>
-        <div className='main--info'>{mainInfo}</div>
-        <div className='region--info'>{regionInfo}</div>{' '}
+    <section className={`location__wrapper`}>
+      <div className={`location__info`}>
+        <div className={`main__info`}>{mainInfo}</div>
+        <div className={`region__info`}>{regionInfo}</div>
       </div>
-      <div className='date--info'>{date} </div>
+      <div className={`date__info`}>{date} </div>
     </section>
   );
 };

@@ -18,17 +18,23 @@ html
   -webkit-font-smoothing: antialiased
   -moz-osx-font-smoothing: grayscale
 
-.main--wrapper
-  // width: clamp(300px,62%,893px)
-  display: flex
-  flex-direction: column
-  margin: 52px auto
+.wrapper
+  width: 100vw
+  height: 100vh
 
-.rwd--container
+  .content__wrapper
+    display: flex
+    flex-direction: column
+    margin: 52px auto
+
+.rwd__container
   width: clamp(300px, 62%, 893px)
 
-.dark--bg
+.dark__bg
   background-color: #222
 
-.yellow--bg
+.yellow__bg
   background-color: #f6a71c
+
+.blured
+  filter: blur(4px)

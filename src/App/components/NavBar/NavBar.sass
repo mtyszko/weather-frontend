@@ -1,4 +1,4 @@
-.nav--wrapper
+.nav__wrapper
   position: fixed
   z-index: 1
   top: 0
@@ -7,13 +7,29 @@
   height: 52px
   display: flex
   justify-content: center
-  // filter: blur(4px)
 
   nav
-    height: 52px
     display: flex
     justify-content: flex-end
+    height: 52px
+    color: #dddddd
 
-    .search--bar--container
+    .nav__btn
+      display: flex
+      justify-content: space-between
+      width: 136px
+      padding: 8px 12px
       align-self: center
-      width: 300px
+      background-color: transparent
+      border: 1px solid #dddddd
+      border-radius: 25px
+      color: #dddddd
+
+    .nav__btn:focus
+      border: none
+      outline: none
+
+      .search__icon
+        width: 12px
+        height: 12px
+        color: #dddddd
