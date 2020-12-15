@@ -19,14 +19,15 @@ html
   -moz-osx-font-smoothing: grayscale
 
 .wrapper
-  width: 100vw
-  height: 100vh
+  min-width: 100vw
+  min-height: 100vh
 
-  .content__wrapper
+  .main__container
     display: flex
     flex-direction: column
     margin: 52px auto
 
+// general styles
 .rwd__container
   width: clamp(300px, 62%, 893px)
 
@@ -35,6 +36,12 @@ html
 
 .yellow__bg
   background-color: #f6a71c
+
+.light__text
+  color: #dddddd
+
+.dart__text
+  color: #333333
 
 .blured
   filter: blur(4px)

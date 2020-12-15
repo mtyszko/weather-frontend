@@ -29,4 +29,5 @@ SearchBar.propTypes = {
   handleUserSearch: propTypes.func.isRequired,
   handleInput: propTypes.func.isRequired,
 };
+
 export default SearchBar;

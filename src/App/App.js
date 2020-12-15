@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 
-import LocationInfo from './components/LocationInfo/LocationInfo';
 import NavBar from './components/NavBar/NavBar';
-import Spinner from './components/Spinner/Spinner';
-import Start from './components/Start/Start';
 
 import {
   handleLocationData,
@@ -12,7 +9,6 @@ import {
 } from '../utils/formatData';
 
 import './App.sass';
-import SearchBar from './components/SearchBar/SearchBar';
 
 class App extends Component {
   state = {
@@ -99,31 +95,15 @@ class App extends Component {
     } = this.state;
 
     return (
-      //  TODO: lepsza logika mile widziana - mniej ternary operators i/lub ifów
-      <>
-        {loading ? <Spinner /> : console.log('stopped loading')}
-        {searchPanel ? (
-          <SearchBar
-            handleUserSearch={this.handleUserSearch}
-            handleInput={this.handleInput}
-          />
-        ) : null}
-        <div className={`wrapper ${searchPanel ? 'blured' : null}`}>
-          <NavBar
-            handleUserSearch={this.handleUserSearch}
-            handleInput={this.handleInput}
-            searchPanel={searchPanel}
-            showSearchPanel={this.showSearchPanel}
-          />
-          <div className='rwd__container content__wrapper'>
-            <LocationInfo
-              mainInfo={mainInfo}
-              regionInfo={regionInfo}
-              date={date}
-            />
-          </div>
-        </div>
-      </>
+      <div className={`wrapper ${searchPanel ? 'blured' : null}`}>
+        <NavBar
+          handleUserSearch={this.handleUserSearch}
+          handleInput={this.handleInput}
+          searchPanel={searchPanel}
+          showSearchPanel={this.showSearchPanel}
+        />
+        <div className='main__container rwd__container'> tu kontent</div>
+      </div>
     );
   }
 }
