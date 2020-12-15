@@ -6,7 +6,7 @@ import './NavBar.sass';
 const NavBar = ({ searchPanel, showSearchPanel }) => {
   return (
     <section className='nav__wrapper dark__bg'>
-      <nav className='main__container'>
+      <nav className='nav__bar rwd__container'>
         {searchPanel ? null : (
           <button
             type='button'
